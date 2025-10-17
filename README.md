@@ -12,7 +12,6 @@ Assignment3_Graphs/
 │   ├── graph_interfaces.py # Interface definitions (Protocol classes)
 │   ├── graph_impl.py       # Concrete implementations of Graph, Vertex, and Edge
 │   ├── program.py          # Main program with traversal algorithms
-│   └── old_graph.py        # Legacy implementation (reference only)
 ├── requirements.txt        # Python dependencies
 └── README.md              # This file
 ```
@@ -158,25 +157,7 @@ The provided graph represents Oregon highways connecting various cities:
 
 ## Project Notes
 
-- `old_graph.py` contains a legacy implementation and is kept for reference only
 - Both DFS and BFS reset visited flags before traversal to ensure correct results
 - The graph uses an adjacency list representation for efficient traversal
 - Edges are directed but the data file creates bidirectional connections
 
-## Testing
-
-To test different starting vertices:
-
-```bash
-# Test from Portland (major hub)
-python program.py
-# Enter: Portland
-
-# Test from a coastal city
-python program.py
-# Enter: Astoria
-
-# Test from an inland city
-python program.py
-# Enter: Bend
-```

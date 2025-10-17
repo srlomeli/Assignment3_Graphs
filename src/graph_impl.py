@@ -22,6 +22,7 @@ class Graph(IGraph):
         
         # Remove all edges that point to this vertex
         for v in self._vertices:
+            
             v_edges = v.get_edges()
             v_edges[:] = [e for e in v_edges if e.get_destination().get_name() != vertex_name]
     def add_edge(self, edge: IEdge) -> None:
