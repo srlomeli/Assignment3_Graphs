@@ -1,5 +1,5 @@
 from graph_interfaces import IEdge, IGraph, IVertex
-from typing import List
+from typing import List, Tuple
 
 class Graph(IGraph):
     def __init__(self) -> None:
@@ -38,6 +38,10 @@ class Vertex(IVertex):
         self._name = name
         self._edges: List[IEdge] = []
         self._visited = False
+        # --- NEW ATTRIBUTES FOR PROJECT 2 ---
+        self._lat: float = 0.0
+        self._lon: float = 0.0
+        # ------------------------------------
 
     def get_name(self) -> str: return self._name
     def set_name(self, name: str) -> None: self._name = name
@@ -62,6 +66,14 @@ class Vertex(IVertex):
     def is_visited(self) -> bool:
         return self._visited
 
+    def set_coordinates(self, lat: float, lon: float) -> None:
+        self._lat = lat
+        self._lon = lon
+
+    def get_coordinates(self) -> Tuple[float, float]:
+        return (self._lat, self._lon)
+
+
 class Edge(IEdge):
     def __init__(self, name: str, destination: IVertex, weight: float = 0.0) -> None:
         self._name = name
@@ -73,7 +85,3 @@ class Edge(IEdge):
     def get_destination(self) -> IVertex: return self._destination
     def get_weight(self) -> float: return self._weight
     def set_weight(self, weight: float) -> None: self._weight = weight
-
-
-
-
